@@ -1,0 +1,180 @@
+.menu {
+
+    position: fixed;
+
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $color-1;
+    height: 50px;
+    width: 100vw;
+    z-index: 5;
+
+
+    .menu-start {
+        display: flex;
+        align-content: center;
+
+
+        .icon {
+            margin: 0px 10px;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+
+            &:hover {
+                opacity: 0.9;
+            }
+        }
+
+        .youtubeLogo {
+            height: 20px;
+
+            &:hover {
+                opacity: 0.9;
+                cursor: pointer;
+            }
+        }
+
+    }
+
+    .middle {
+        display: flex;
+        align-items: center;
+        position: relative;
+
+        > input {
+            background-color: $color-2;
+            width: 25vw;
+            padding: 7px 10px;
+            height: 30px;
+            border: none;
+            outline: none;
+            color: white;
+
+        }
+
+        .btn-container {
+            position: relative;
+            .btn-search {
+                padding: 3px 10px;
+                height: 30px;
+                background-color: $color-4;
+                border: none;
+                outline: none;
+                border-radius: 0px 10px 10px 0px;
+    
+                &:hover {
+                    background-color: $color-3;
+                }
+    
+                &:active {
+                    background-color: $color-1;
+                }
+            }
+            &::after {
+                position: absolute;
+                content:"Rechercher";
+                right: -28px;
+                bottom: -45px;
+                visibility: hidden;
+                background-color: $color-4;
+                padding: 5px 10px;
+                border-radius: 10px;
+                
+            }
+            &:hover{
+                &::after{
+                    visibility:visible;
+                }
+            }
+        }
+       
+
+        .hover {
+            position: absolute;
+            text-align: center;
+            right: -5%;
+            top:50px;
+        }
+
+    }
+
+    .end {
+        display: flex;
+        align-items: center;
+
+        .icon {
+            width: 25px;
+            height: 25px;
+            cursor: pointer;
+            margin: 0px 10px;
+
+            &:after {
+                content: "642";
+                opacity: 0.5;
+            }
+
+        }
+
+        .upload{
+            &::after{
+                content:"Upload";
+                right: -15px;
+            }
+        }
+
+        .application{
+            &::after{
+                content:"Application";
+                right: -28px;
+            }
+        }
+
+        .notification{
+            &::after{
+                content:"Notification";
+                right: -30px;
+            }
+        }
+
+        .icon-container{
+            position: relative;
+
+            &:active{
+                background-color: $color-2;
+                border-radius: 10px;
+            }
+            &::after {
+                position: absolute;
+                bottom: -45px;
+                visibility: hidden;
+                background-color: $color-4;
+                padding: 5px 10px;
+                border-radius: 10px;
+                
+            }
+            &:hover{
+                &::after{
+                    visibility:visible;
+                }
+            }
+            
+        }
+
+    
+
+        p {
+            margin: 5px 10px;
+            padding: 5px 5px;
+            display: block;
+            background-color: red;
+            height: 25px;
+            width: 25px;
+            border-radius: 50%;
+            text-align: center;
+        }
+    }
+
+}
