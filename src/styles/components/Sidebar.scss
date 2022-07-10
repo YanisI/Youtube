@@ -1,0 +1,71 @@
+.sidebar {
+    overflow-y: scroll;
+    position: fixed;
+    top: 50px;
+    left: 0px;
+    width: 240px;
+    height: calc(100vh - 50px);
+    background-color: $color-1;
+    font-family: $font-1;
+
+    .navSide {
+        padding: 12px 0px;
+
+        .first, .second{
+            .container {
+                display: flex;
+                align-items: center;
+                padding: 0px 24px;
+                height: 40px;
+
+                &:hover{
+                    background-color: $color-7;
+                    cursor: pointer;
+                }
+                .icon {
+                    width: 24px;
+                    margin-right: 24px;
+                }
+            
+                .titre {
+                    display: block;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    font-size: 14px;
+                    line-height: 2rem;
+                    font-weight: 400;
+                }
+            }
+
+            .info {
+                padding: 8px 24px;
+                color: $color-5;
+            }
+           
+        }
+
+        .second {
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid $color-4;
+        }
+        
+
+    }
+
+    .abonnements {
+        border-top: 1px solid $color-4;
+        border-bottom: 1px solid $color-4;
+        padding: 8px 0px;
+
+        .first {
+            .container{
+                padding: 8px 24px;
+                color: $color-5;
+            }
+        }
+
+    }
+    
+}
