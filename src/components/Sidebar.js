@@ -184,7 +184,7 @@ const Sidebar = () => {
                         </span>
                     </div>
                     <div className="container">
-                        <div className="icon">
+                        <div className="icone">
                             <Signaler />
                         </div>
                         <span className='titre'>
@@ -200,7 +200,7 @@ const Sidebar = () => {
                         </span>
                     </div>
                     <div className="container">
-                        <div className="icon">
+                        <div className="icone">
                             <Commentaire />
                         </div>
                         <span className='titre'>
