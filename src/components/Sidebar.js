@@ -23,20 +23,28 @@ import { ReactComponent as Signaler } from '../images/sidebar/fourth/signaler.sv
 import { ReactComponent as Aide } from '../images/sidebar/fourth/aide.svg';
 import { ReactComponent as Commentaire } from '../images/sidebar/fourth/commentaire.svg';
 
+import { NavLink } from "react-router-dom"
+
 
 const Sidebar = () => {
     return (
         <div className='sidebar'>
             <div className="navSide">
                 <div className="first">
-                    <div className="container">
-                        <div className="icon">
-                            <Accueil />
+                    <NavLink
+                        to="/"
+                        className={(nav) => (nav.isActive ? "nav active" : "nav")}
+                    >
+                        <div className="container">
+                            <div className="icon">
+
+                                <Accueil />
+                            </div>
+                            <span className='titre'>
+                                Accueil
+                            </span>
                         </div>
-                        <span className='titre'>
-                            Accueil
-                        </span>
-                    </div>
+                    </NavLink>
                     <div className="container">
                         <div className="icon">
                             <Explorer />
@@ -115,14 +123,14 @@ const Sidebar = () => {
             <div className="navSide">
                 <div className="first">
                     <div className="info">
-                    AUTRES CONTENUS YOUTUBE
+                        AUTRES CONTENUS YOUTUBE
                     </div>
                     <div className="container">
                         <div className="icon">
                             <Premium />
                         </div>
                         <span className='titre'>
-                        YouTube Premium
+                            YouTube Premium
                         </span>
                     </div>
                     <div className="container">
@@ -130,7 +138,7 @@ const Sidebar = () => {
                             <Film />
                         </div>
                         <span className='titre'>
-                        Films et TV
+                            Films et TV
                         </span>
                     </div>
                     <div className="container">
@@ -138,7 +146,7 @@ const Sidebar = () => {
                             <Game />
                         </div>
                         <span className='titre'>
-                        Jeux vidéo
+                            Jeux vidéo
                         </span>
                     </div>
                     <div className="container">
@@ -146,7 +154,7 @@ const Sidebar = () => {
                             <Live />
                         </div>
                         <span className='titre'>
-                        En direct
+                            En direct
                         </span>
                     </div>
                     <div className="container">
@@ -154,7 +162,7 @@ const Sidebar = () => {
                             <Mode />
                         </div>
                         <span className='titre'>
-                        Mode et beauté
+                            Mode et beauté
                         </span>
                     </div>
                     <div className="container">
@@ -162,7 +170,7 @@ const Sidebar = () => {
                             <Savoir />
                         </div>
                         <span className='titre'>
-                        Savoirs & Cultures
+                            Savoirs & Cultures
                         </span>
                     </div>
                     <div className="container">
@@ -170,7 +178,7 @@ const Sidebar = () => {
                             <Sport />
                         </div>
                         <span className='titre'>
-                        Sport
+                            Sport
                         </span>
                     </div>
                 </div>
@@ -180,7 +188,7 @@ const Sidebar = () => {
                             <Parametre />
                         </div>
                         <span className='titre'>
-                        Paramètre
+                            Paramètre
                         </span>
                     </div>
                     <div className="container">
@@ -209,7 +217,7 @@ const Sidebar = () => {
                     </div>
                 </div>
             </div>
-            
+
         </div>
     )
 }

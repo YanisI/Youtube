@@ -39,13 +39,24 @@
 
             }
 
-            .channelTitle {
-                font-family: "Roboto", "Arial", sans-serif;
-                color: $color-5;
-                font-size: calc(13px + 0.2vw);
-                line-height: 2rem;
-                font-weight: 400;
+            .link {
+                text-decoration: none;
+
+                .channelTitle {
+                    font-family: "Roboto", "Arial", sans-serif;
+                    color: $color-5;
+                    font-size: calc(13px + 0.2vw);
+                    line-height: 2rem;
+                    font-weight: 400;
+                    &:hover {
+                        color: $white;
+                    }
+                }
+
+                
             }
+
+
 
             .video-infos {
                 font-family: "Roboto", "Arial", sans-serif;
@@ -54,8 +65,8 @@
                 line-height: 1rem;
                 font-weight: 400;
                 margin: 0;
-    padding: 0;
-    border: 0;
+                padding: 0;
+                border: 0;
             }
         }
     }

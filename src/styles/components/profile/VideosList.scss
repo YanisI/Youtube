@@ -1,0 +1,11 @@
+.videosList {
+
+    display: grid;
+    margin-top: 40px;
+    grid-template-columns: repeat(
+        auto-fill,
+            minmax(260px, 1fr));
+
+    margin: 20px 10% 0px 10%;
+
+}

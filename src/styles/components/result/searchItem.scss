@@ -1,0 +1,81 @@
+.container-searchItem {
+    display: flex;
+    width: 1096px;
+    height: 202px;
+    margin-top: 16px;
+
+    .miniature {
+        margin-right: 16px;
+        display: flex;
+        height: 100%;
+        align-items: center;
+        .video {
+            width: 360px;
+        }
+    }
+
+    .info {
+        display: flex;
+        flex-direction: column;
+        .title{
+            color: $white;
+            height: 100%;
+            font-size: 1em;
+            font-weight: bold;
+            max-height: 2em;
+            line-height: 1em;
+            overflow: hidden;
+        }
+        .video-infos {
+            color: $color-5;
+            font-size: calc(11px + 0.2vw);
+            line-height: 1rem;
+            font-weight: 400;
+            margin: 0;
+            padding: 0;
+            border: 0;
+        }
+
+        .profileImage { 
+            padding: 12px 0px;
+            color: $color-5;
+            display: flex;
+            align-items: center;
+
+            .profilePicture {
+                width: 36px;
+                height: 36px;
+                border-radius: 50%;
+            }
+
+            .channelTitle {
+                display: block;
+                height: fit-content;
+                font-size: 14px;
+                padding-left: 10px;
+                color: $color-5;
+
+                .link{
+                    text-decoration: none;
+                    color: $color-5;
+                    &:hover{
+                        color: $white;
+
+                    }
+                }
+            }
+        }
+
+        .othersinfos {
+            .description {
+                font-size: 14px;
+                display: block;
+                color: $color-5;
+                text-overflow: ellipsis;
+                max-height: 1em;
+                line-height: 1em;
+                overflow: hidden;
+            }
+        }
+    }
+}

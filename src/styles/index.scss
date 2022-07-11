@@ -1,5 +1,16 @@
 @import "./settings";
-@import "./pages/Home";
+
 @import "./components/Navbar";
-@import "./components/Card";
 @import "./components/Sidebar";
+
+@import "./pages/Home";
+@import "./components/Card";
+
+@import "./pages/Result";
+@import "./components/result/searchResult";
+@import "./components/result/searchItem";
+
+@import "./pages/Profile";
+@import "./components/profile/Channel";
+@import "./components/profile/Bandeau";
+@import "./components/profile/VideosList";

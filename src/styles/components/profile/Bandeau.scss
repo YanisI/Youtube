@@ -1,0 +1,48 @@
+.bandeau {
+    .bandeau-infos {
+        margin: 16px 10% 0px 10%;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: center;
+
+        .profile{
+            display: flex;
+            .profilePicture{
+                margin-right: 24px;
+
+                img {
+                    width: 80px;
+                    border-radius: 50%;
+                }
+            }
+
+            .namesub {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+                .nom {
+                    color: $white;
+                    font-size: 18px;
+                }
+                .subCount {
+                    color: $color-5;
+                }
+            }
+        }
+
+        .sub {
+            button {
+                background-color: $color-sub;
+                color: $white;
+                outline: none;
+                border: none;
+                cursor: pointer;
+                padding: 10px 16px;
+                font-weight: 500;
+                border-radius: 5px;
+            }
+        }
+    }
+}

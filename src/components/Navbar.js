@@ -6,6 +6,7 @@ import { ReactComponent as Loupe } from '../images/loupe.svg';
 import { ReactComponent as Upload } from '../images/upload.svg';
 import { ReactComponent as Application } from '../images/application.svg';
 import { ReactComponent as Notification } from '../images/notification.svg';
+import { NavLink } from "react-router-dom"
 
 const Navbar = () => {
 
@@ -25,7 +26,12 @@ const Navbar = () => {
                     onChange={(e) => setVal(e.target.value)}
                 />
                 <div className="btn-container">
-                    <Loupe className='btn-search' />
+                    <NavLink
+                        to={`/result/${val}`}
+                        className={(nav) => (nav.isActive ? "nav-active" : "")}
+                    >
+                        <Loupe className='btn-search' />
+                    </NavLink>
                 </div>
             </div>
             <div className="end">

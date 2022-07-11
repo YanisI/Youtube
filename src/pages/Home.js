@@ -11,8 +11,10 @@ import Sidebar from '../components/Sidebar';
 
 const Home = () => {
 
-  const [videos,setVideos] = useState([])
-  const [max,setMax] = useState(5)
+  const [videos, setVideos] = useState([]);
+  const [max, setMax] = useState(10);
+  const [load, setLoad] = useState(0);
+
 
 
   /* Disable to save resources
@@ -31,18 +33,18 @@ const Home = () => {
   useEffect(() => {
     const call = () => {
       axios.get("https://www.googleapis.com/youtube/v3/search", {
-      params : {
-        part: 'snippet',
-        maxResults: max,
-        key: process.env.REACT_APP_KEY
-      }})
+        params: {
+          part: 'snippet',
+          maxResults: max,
+          key: process.env.REACT_APP_KEY
+        }
+      })
         .then(res => {
-          console.log(res.data.items[1].snippet.publishedAt)
-          //console.log(res.data[0].publishTime)
-          
-          let a = moment(res.data.items[1].snippet.publishedAt)
-          console.log(a.fromNow())
-          setVideos(res.data.items)
+          console.log(res.data.items[0].snippet.publishedAt);
+          let a = moment(res.data.items[0].snippet.publishedAt);
+          console.log(a.fromNow());
+          setVideos(res.data.items);
+          setLoad(1);
           return true;
         });
     }
@@ -52,16 +54,20 @@ const Home = () => {
 
 
   return (
-    <div className="home">
-      <Navbar />
-      <Sidebar />
-      
-      <div className='HomePage'>
-        {videos.map((video,index)=> {
-          return <Card video={video} key={index} />
-        })}
-      </div>
-    </div>
+    <>
+      {load &&
+        <div className="home">
+          <Navbar />
+          <Sidebar />
+
+          <div className='HomePage'>
+            {videos.map((video, index) => {
+              return <Card video={video} key={index} />
+            })}
+          </div>
+        </div>
+      }
+    </>
   )
 }
 
