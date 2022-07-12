@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 import moment from 'moment';
-import { NavLink } from "react-router-dom"
+import { NavLink } from "react-router-dom";
+import { formatNumber } from '../format';
 
 
 
@@ -11,24 +12,8 @@ const SearchItem = ({ video }) => {
     const [view, setView] = useState(0);
     const [channelId, setChannelId] = useState("");
     const [channel, setChannel] = useState(true);
-    const [load, setLoad] = useState(0);
-    const [loadD, setLoadD] = useState(0);
-
-
-    const formatView = (num) => {
-
-        if (num >= 1000000000) {
-            return (num / 1000000000).toFixed(1).replace(/\.0$/, '') + 'Md';
-        }
-        if (num >= 1000000) {
-            return (num / 1000000).toFixed(1).replace(/\.0$/, '') + 'M';
-        }
-        if (num >= 1000) {
-            return (num / 1000).toFixed(1).replace(/\.0$/, '') + 'K';
-        }
-        return num;
-    }
-
+    const [load, setLoad] = useState(false);
+    const [loadD, setLoadD] = useState(false);
 
     useEffect(() => {
 
@@ -49,7 +34,7 @@ const SearchItem = ({ video }) => {
                     console.log(res)
                     console.log(res.data.items[0].snippet.thumbnails.default.url)
                     setUrl(res.data.items[0].snippet.thumbnails.default.url);
-                    setLoad(1);
+                    setLoad(true);
                     return true;
                 });
         }
@@ -65,7 +50,7 @@ const SearchItem = ({ video }) => {
                 .then(res => {
                     console.log("aaa")
                     setView(res.data.items[0].statistics.viewCount);
-                    setLoadD(1);
+                    setLoadD(true);
                     return true;
                 });
         }
@@ -73,19 +58,25 @@ const SearchItem = ({ video }) => {
         getPP();
         getView();
 
-    }, [])
+    }, [video.id.kind, video.id.videoId, video.snippet.channelId])
 
 
     return (
         <>
-           { load && loadD && <div> {channel === false ? (
+            {load && loadD && <div> {channel === false ? (
                 <div className='container-searchItem'>
                     <div className="miniature">
-                        <img
-                            src={`${video.snippet.thumbnails.medium.url}`}
-                            alt=""
-                            className='video'
-                        />
+                        <NavLink
+                            to={`/video/${video.id.videoId}`}
+                            className="link"
+                        >
+                            <img
+                                src={`${video.snippet.thumbnails.medium.url}`}
+                                alt=""
+                                className='video'
+                            />
+                        </NavLink>
+
                     </div>
 
                     <div className='info'>
@@ -95,14 +86,18 @@ const SearchItem = ({ video }) => {
                         </div>
 
                         <div className="video-infos">
-                            <span>{formatView(view)} Views </span>
+                            <span>{formatNumber(view)} Views </span>
                             -
                             <span> {moment(video.snippet.publishedAt).fromNow()}</span>
                         </div>
 
                         <div className="profileImage">
 
-                            <img src={url} className='profilePicture' />
+                            <img
+                                src={url}
+                                className='profilePicture'
+                                alt="profilePicture"
+                            />
 
                             <span className='channelTitle'>
                                 <NavLink
@@ -124,7 +119,7 @@ const SearchItem = ({ video }) => {
                         </div>
                     </div>
                 </div>) : (<></>)}
-            </div>} 
+            </div>}
         </>
     )
 }

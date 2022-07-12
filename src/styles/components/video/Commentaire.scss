@@ -1,0 +1,54 @@
+.CommentaireCard {
+    display: flex;
+    margin: 20px 10px;
+
+    .profilePicture {
+        width: 56px;
+        margin-right: 20px;
+
+        .link {
+            text-decoration: none;
+            color: $color-6;
+            .profil {
+                border-radius: 50%;
+
+            }
+        }
+    }
+
+    .text {
+
+        display: flex;
+        flex-direction: column;
+
+        .infos-Commentaire {
+            display: flex;
+            align-items: center;
+            padding-bottom: 5px;
+
+            .name {
+                font-size: 14px;
+                margin-right: 5px;
+
+                .link {
+                    text-decoration: none;
+                    color: $white;
+                }
+
+            }
+
+            .time {
+                font-size: 12px;
+                color: $color-4;
+                margin-left: 5px;
+
+            }
+        }
+
+        .content {
+            color: $color-5;
+            font-size: 14px;
+
+        }
+    }
+}

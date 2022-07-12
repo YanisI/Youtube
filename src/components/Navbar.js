@@ -15,7 +15,13 @@ const Navbar = () => {
         <div className="menu">
             <div className="menu-start">
                 <Menu className="icon" />
-                <Youtube className="youtubeLogo" />
+                <NavLink
+                    to="/"
+                    className="link"
+                >
+                    <Youtube className="youtubeLogo" />
+
+                </NavLink>
             </div>
             <div className="middle">
                 <input

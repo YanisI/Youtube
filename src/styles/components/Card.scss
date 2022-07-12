@@ -4,9 +4,14 @@
     align-items: center;
     margin: 0px 8px 40px 8px;
 
-    .video {
+    .link {
         width: 100%;
+        .video {
+            width: 100%;
+        }
+
     }
+    
 
     .info {
         display: flex;

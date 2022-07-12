@@ -5,7 +5,7 @@ import Card from '../Card';
 const VideosList = ({ channelId }) => {
 
     const [videos, setVideos] = useState([]);
-    const [load, setLoad] = useState(0);
+    const [load, setLoad] = useState(false);
 
     useEffect(() => {
 
@@ -22,14 +22,14 @@ const VideosList = ({ channelId }) => {
                 .then(res => {
                     console.log(res.data.items)
                     setVideos(res.data.items)
-                    setLoad(1);
+                    setLoad(true);
                     return true;
                 });
         }
 
         getVideos();
 
-    }, []);
+    }, [channelId]);
 
 
     return (

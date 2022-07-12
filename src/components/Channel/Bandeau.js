@@ -1,25 +1,12 @@
-import React, { useEffect, useState } from 'react'
-import axios from "axios"
+import React, { useEffect, useState } from 'react';
+import axios from "axios";
+import { formatNumber } from '../format';
 
 const Bandeau = ({ channelId }) => {
 
     const [infos, setInfos] = useState()
-    const [loading, setLoading] = useState(1)
+    const [loading, setLoading] = useState(false)
 
-
-    const formatSub = (sub) => {
-
-        if (sub >= 1000000000) {
-            return (sub / 1000000000).toFixed(1).replace(/\.0$/, '') + 'Md';
-        }
-        if (sub >= 1000000) {
-            return (sub / 1000000).toFixed(1).replace(/\.0$/, '') + 'M';
-        }
-        if (sub >= 1000) {
-            return (sub / 1000).toFixed(1).replace(/\.0$/, '') + 'K';
-        }
-        return sub;
-    }
 
     useEffect(() => {
 
@@ -41,7 +28,7 @@ const Bandeau = ({ channelId }) => {
                     console.log(res.data.items[0]);
                     console.log(res.data.items[0].brandingSettings.image.bannerExternalUrl)
                     setInfos(res.data.items[0])
-                    setLoading(0)
+                    setLoading(true)
 
                     //          <img className="banner" src={infos.brandingSettings.image.bannerExternalUrl}/>
                 });
@@ -50,19 +37,22 @@ const Bandeau = ({ channelId }) => {
         getInfos();
 
 
-    }, [])
+    }, [channelId])
     return (
         <>
-            {   loading === 0 &&
+            {   loading &&
                 <div className='bandeau'>
                     <div className="bandeau-infos">
                         <div className="profile">
                             <div className="profilePicture">
-                                <img src={infos.snippet.thumbnails.high.url} />
+                                <img 
+                                src={infos.snippet.thumbnails.high.url} 
+                                alt="profilePicture"
+                                />
                             </div>
                             <div className="namesub">
                                 <span className='nom'>{infos.snippet.title}</span>
-                                <span className='subCount'>{formatSub(infos.statistics.subscriberCount)} abonnées</span>
+                                <span className='subCount'>{formatNumber(infos.statistics.subscriberCount)} abonnées</span>
                             </div>
                         </div>
                         <div className="sub">

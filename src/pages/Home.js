@@ -12,21 +12,20 @@ import Sidebar from '../components/Sidebar';
 const Home = () => {
 
   const [videos, setVideos] = useState([]);
-  const [max, setMax] = useState(10);
-  const [load, setLoad] = useState(0);
+  const [max, setMax] = useState(20);
+  const [load, setLoad] = useState(false);
 
 
 
-  /* Disable to save resources
+  /* Disable to save resources*/
   
   window.onscroll = function () {
-
     if(
       window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight && max < 50
     ){
       setMax(max+12)
     }
-  }*/
+  }
 
 
 
@@ -44,7 +43,7 @@ const Home = () => {
           let a = moment(res.data.items[0].snippet.publishedAt);
           console.log(a.fromNow());
           setVideos(res.data.items);
-          setLoad(1);
+          setLoad(true);
           return true;
         });
     }
