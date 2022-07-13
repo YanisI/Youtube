@@ -14,8 +14,11 @@ const SearchItem = ({ video }) => {
     const [channel, setChannel] = useState(true);
     const [load, setLoad] = useState(false);
     const [loadD, setLoadD] = useState(false);
+    const [pp,setPp] = useState("");
 
     useEffect(() => {
+
+        setPp(video.snippet.thumbnails.medium.url);
 
         if (video.id.kind.localeCompare("youtube#channel")) {
             setChannel(false);
@@ -58,7 +61,7 @@ const SearchItem = ({ video }) => {
         getPP();
         getView();
 
-    }, [video.id.kind, video.id.videoId, video.snippet.channelId])
+    }, [video])
 
 
     return (
@@ -71,7 +74,7 @@ const SearchItem = ({ video }) => {
                             className="link"
                         >
                             <img
-                                src={`${video.snippet.thumbnails.medium.url}`}
+                                src={`${pp}`}
                                 alt=""
                                 className='video'
                             />

@@ -31,12 +31,14 @@ const Navbar = () => {
                     placeholder="Rechercher"
                     onChange={(e) => setVal(e.target.value)}
                 />
-                <div className="btn-container">
+                <div className="btn-container"
+                    onClick={() => window.scrollTo(0, 0)}>
                     <NavLink
                         to={`/result/${val}`}
                         className={(nav) => (nav.isActive ? "nav-active" : "")}
                     >
-                        <Loupe className='btn-search' />
+                        <Loupe className='btn-search' 
+                        />
                     </NavLink>
                 </div>
             </div>

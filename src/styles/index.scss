@@ -19,3 +19,15 @@
 @import "./components/video/VideoPlayer";
 @import "./components/video/VideoLecteur";
 @import "./components/video/Commentaire";
+
+
+
+::-webkit-scrollbar {
+    width: 0.5vw;
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background-color: $color-5; 
+    }

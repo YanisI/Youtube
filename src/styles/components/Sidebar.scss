@@ -86,4 +86,24 @@
 
     }
 
+    &::-webkit-scrollbar{
+        width: 0.5vw;
+        background: transparent;
+        transition: 0.8s;
+    }
+    &::-webkit-scrollbar-thumb{
+        background-color: transparent; 
+
+    }
+
+    
+
+    &:hover {
+        transition: 0.8s;
+        &::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            background-color: $color-3; 
+        }
+    }
+    
 }

@@ -12,10 +12,19 @@ const Card = ({ video }) => {
   const [channelId, setChannelId] = useState("");
   const [load, setLoad] = useState(false);
   const [loadD, setLoadD] = useState(false);
+  const [miniature,setMiniature] = useState("");
+  const [title,setTitle] = useState("");
+  const [channelTitle,setChannelTitle] = useState("");
+  const [publishedAt,setPublishedAt] = useState("");
+  
 
   useEffect(() => {
 
+    setMiniature(video.snippet.thumbnails.medium.url);
+    setTitle(video.snippet.title);
+    setChannelTitle(video.snippet.channelTitle);
     setChannelId(video.snippet.channelId);
+    setPublishedAt(video.snippet.publishedAt)
 
     const getPP = () => {
       axios.get("https://www.googleapis.com/youtube/v3/channels", {
@@ -53,7 +62,7 @@ const Card = ({ video }) => {
     getPP();
     getView();
 
-  }, [video.id.videoId, video.snippet.channelId])
+  }, [video])
 
 
   return (
@@ -66,7 +75,7 @@ const Card = ({ video }) => {
             className="link"
           >
             <img
-              src={`${video.snippet.thumbnails.medium.url}`}
+              src={`${miniature}`}
               alt=""
               className='video'
             />
@@ -80,20 +89,20 @@ const Card = ({ video }) => {
             </div>
             <div className="othersinfos">
               <div className="title">
-                {video.snippet.title}
+                {title}
               </div>
               <NavLink
                 to={`/channel/${channelId}`}
                 className="link"
               >
-                <span className='channelTitle'>{video.snippet.channelTitle}</span>
+                <span className='channelTitle'>{channelTitle}</span>
               </NavLink>
 
 
               <div className="video-infos">
                 <span>{formatNumber(view)} Views </span>
                 -
-                <span> {moment(video.snippet.publishedAt).fromNow()}</span>
+                <span> {moment(publishedAt).fromNow()}</span>
               </div>
             </div>
           </div>

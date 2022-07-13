@@ -1,9 +1,23 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import moment from 'moment';
 
 import { NavLink } from "react-router-dom"
 
 const Commentaire = ({ comment }) => {
+    const [channel, setChannel] = useState();
+    const [url, setUrl] = useState("");
+    const [name, setName] = useState("");
+    const [date, setDate] = useState("");
+    const [com, setCom] = useState("");
+
+    useEffect(()=> {
+        setChannel(comment.snippet.topLevelComment.snippet.authorChannelId.value);
+        setUrl(comment.snippet.topLevelComment.snippet.authorProfileImageUrl);
+        setName(comment.snippet.topLevelComment.snippet.authorDisplayName);
+        setDate(comment.snippet.topLevelComment.snippet.publishedAt);
+        setCom(comment.snippet.topLevelComment.snippet.textOriginal);
+
+    },[comment])
 
 
     console.log(comment)
@@ -11,11 +25,11 @@ const Commentaire = ({ comment }) => {
         <div className="CommentaireCard">
             <div className="profilePicture">
                 <NavLink
-                    to={`/channel/${comment.snippet.topLevelComment.snippet.authorChannelId.value}`}
+                    to={`/channel/${channel}`}
                     className="link"
                 >
                     <img
-                        src={comment.snippet.topLevelComment.snippet.authorProfileImageUrl}
+                        src={url}
                         className="profil"
                         alt="profil"
                     />
@@ -25,20 +39,20 @@ const Commentaire = ({ comment }) => {
                 <div className="infos-Commentaire">
                     <span className='name'>
                         <NavLink
-                            to={`/channel/${comment.snippet.topLevelComment.snippet.authorChannelId.value}`}
+                            to={`/channel/${channel}`}
                             className="link"
                         >
-                            {comment.snippet.topLevelComment.snippet.authorDisplayName}
+                            {name}
                         </NavLink>
 
                     </span>
                     -
-                    <span className='time'>   {moment(comment.snippet.topLevelComment.snippet.publishedAt).fromNow()}</span>
+                    <span className='time'>   {moment(date).fromNow()}</span>
 
                 </div>
                 <div className="content">
 
-                    {comment.snippet.topLevelComment.snippet.textOriginal}
+                    {com}
 
                 </div>
             </div>
