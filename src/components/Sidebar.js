@@ -28,9 +28,199 @@ import { NavLink } from "react-router-dom"
 
 const Sidebar = () => {
     return (
-        <div className='sidebar'>
-            <div className="navSide">
-                <div className="first">
+        <>
+            <div className='sidebar'>
+                <div className="navSide">
+                    <div className="first">
+                        <NavLink
+                            to="/"
+                            className={(nav) => (nav.isActive ? "nav active" : "nav")}
+                        >
+                            <div className="container">
+                                <div className="icon">
+
+                                    <Accueil />
+                                </div>
+                                <span className='titre'>
+                                    Accueil
+                                </span>
+                            </div>
+                        </NavLink>
+                        <div className="container">
+                            <div className="icon">
+                                <Explorer />
+                            </div>
+                            <span className='titre'>
+                                Explorer
+                            </span>
+                        </div>
+                        <div className="container">
+                            <div className="icon">
+                                <Short />
+                            </div>
+                            <span className='titre'>
+                                Shorts
+                            </span>
+                        </div>
+                        <div className="container">
+                            <div className="icon">
+                                <Abonnement />
+                            </div>
+                            <span className='titre'>
+                                Abonnement
+                            </span>
+                        </div>
+                    </div>
+                    <div className="second">
+                        <div className="container">
+                            <div className="icon">
+                                <Bibliotheque />
+                            </div>
+                            <span className='titre'>
+                                Bibliothèque
+                            </span>
+                        </div>
+                        <div className="container">
+                            <div className="icon">
+                                <Historique />
+                            </div>
+                            <span className='titre'>
+                                Historique
+                            </span>
+                        </div>
+                        <div className="container">
+                            <div className="icon">
+                                <VosVideos />
+                            </div>
+                            <span className='titre'>
+                                Vos Videos
+                            </span>
+                        </div>
+                        <div className="container">
+                            <div className="icon">
+                                <WatchLater />
+                            </div>
+                            <span className='titre'>
+                                Watch Later
+                            </span>
+                        </div>
+                        <div className="container">
+                            <div className="icon">
+                                <Likes />
+                            </div>
+                            <span className='titre'>
+                                Likes
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div className="abonnements">
+                    <div className="first">
+                        <div className="container">
+                            ABONNEMENTS
+                        </div>
+                    </div>
+                </div>
+                <div className="navSide">
+                    <div className="first">
+                        <div className="info">
+                            AUTRES CONTENUS YOUTUBE
+                        </div>
+                        <div className="container">
+                            <div className="icon">
+                                <Premium />
+                            </div>
+                            <span className='titre'>
+                                YouTube Premium
+                            </span>
+                        </div>
+                        <div className="container">
+                            <div className="icon">
+                                <Film />
+                            </div>
+                            <span className='titre'>
+                                Films et TV
+                            </span>
+                        </div>
+                        <div className="container">
+                            <div className="icon">
+                                <Game />
+                            </div>
+                            <span className='titre'>
+                                Jeux vidéo
+                            </span>
+                        </div>
+                        <div className="container">
+                            <div className="icon">
+                                <Live />
+                            </div>
+                            <span className='titre'>
+                                En direct
+                            </span>
+                        </div>
+                        <div className="container">
+                            <div className="icon">
+                                <Mode />
+                            </div>
+                            <span className='titre'>
+                                Mode et beauté
+                            </span>
+                        </div>
+                        <div className="container">
+                            <div className="icon">
+                                <Savoir />
+                            </div>
+                            <span className='titre'>
+                                Savoirs & Cultures
+                            </span>
+                        </div>
+                        <div className="container">
+                            <div className="icon">
+                                <Sport />
+                            </div>
+                            <span className='titre'>
+                                Sport
+                            </span>
+                        </div>
+                    </div>
+                    <div className="second">
+                        <div className="container">
+                            <div className="icon">
+                                <Parametre />
+                            </div>
+                            <span className='titre'>
+                                Paramètre
+                            </span>
+                        </div>
+                        <div className="container">
+                            <div className="icone">
+                                <Signaler />
+                            </div>
+                            <span className='titre'>
+                                Historique des signalements
+                            </span>
+                        </div>
+                        <div className="container">
+                            <div className="icon">
+                                <Aide />
+                            </div>
+                            <span className='titre'>
+                                Aide
+                            </span>
+                        </div>
+                        <div className="container">
+                            <div className="icone">
+                                <Commentaire />
+                            </div>
+                            <span className='titre'>
+                                Envoyer des commentaires
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div className='sidebarSecondary'>
                     <NavLink
                         to="/"
                         className={(nav) => (nav.isActive ? "nav active" : "nav")}
@@ -40,185 +230,31 @@ const Sidebar = () => {
 
                                 <Accueil />
                             </div>
-                            <span className='titre'>
-                                Accueil
-                            </span>
                         </div>
                     </NavLink>
                     <div className="container">
                         <div className="icon">
                             <Explorer />
                         </div>
-                        <span className='titre'>
-                            Explorer
-                        </span>
                     </div>
                     <div className="container">
                         <div className="icon">
                             <Short />
                         </div>
-                        <span className='titre'>
-                            Shorts
-                        </span>
                     </div>
                     <div className="container">
                         <div className="icon">
                             <Abonnement />
                         </div>
-                        <span className='titre'>
-                            Abonnement
-                        </span>
                     </div>
-                </div>
-                <div className="second">
-                    <div className="container">
-                        <div className="icon">
-                            <Bibliotheque />
-                        </div>
-                        <span className='titre'>
-                            Bibliothèque
-                        </span>
-                    </div>
-                    <div className="container">
-                        <div className="icon">
-                            <Historique />
-                        </div>
-                        <span className='titre'>
-                            Historique
-                        </span>
-                    </div>
-                    <div className="container">
-                        <div className="icon">
-                            <VosVideos />
-                        </div>
-                        <span className='titre'>
-                            Vos Videos
-                        </span>
-                    </div>
-                    <div className="container">
-                        <div className="icon">
-                            <WatchLater />
-                        </div>
-                        <span className='titre'>
-                            Watch Later
-                        </span>
-                    </div>
-                    <div className="container">
-                        <div className="icon">
-                            <Likes />
-                        </div>
-                        <span className='titre'>
-                            Likes
-                        </span>
+                
+                <div className="container">
+                    <div className="icon">
+                        <Bibliotheque />
                     </div>
                 </div>
             </div>
-            <div className="abonnements">
-                <div className="first">
-                    <div className="container">
-                        ABONNEMENTS
-                    </div>
-                </div>
-            </div>
-            <div className="navSide">
-                <div className="first">
-                    <div className="info">
-                        AUTRES CONTENUS YOUTUBE
-                    </div>
-                    <div className="container">
-                        <div className="icon">
-                            <Premium />
-                        </div>
-                        <span className='titre'>
-                            YouTube Premium
-                        </span>
-                    </div>
-                    <div className="container">
-                        <div className="icon">
-                            <Film />
-                        </div>
-                        <span className='titre'>
-                            Films et TV
-                        </span>
-                    </div>
-                    <div className="container">
-                        <div className="icon">
-                            <Game />
-                        </div>
-                        <span className='titre'>
-                            Jeux vidéo
-                        </span>
-                    </div>
-                    <div className="container">
-                        <div className="icon">
-                            <Live />
-                        </div>
-                        <span className='titre'>
-                            En direct
-                        </span>
-                    </div>
-                    <div className="container">
-                        <div className="icon">
-                            <Mode />
-                        </div>
-                        <span className='titre'>
-                            Mode et beauté
-                        </span>
-                    </div>
-                    <div className="container">
-                        <div className="icon">
-                            <Savoir />
-                        </div>
-                        <span className='titre'>
-                            Savoirs & Cultures
-                        </span>
-                    </div>
-                    <div className="container">
-                        <div className="icon">
-                            <Sport />
-                        </div>
-                        <span className='titre'>
-                            Sport
-                        </span>
-                    </div>
-                </div>
-                <div className="second">
-                    <div className="container">
-                        <div className="icon">
-                            <Parametre />
-                        </div>
-                        <span className='titre'>
-                            Paramètre
-                        </span>
-                    </div>
-                    <div className="container">
-                        <div className="icone">
-                            <Signaler />
-                        </div>
-                        <span className='titre'>
-                            Historique des signalements
-                        </span>
-                    </div>
-                    <div className="container">
-                        <div className="icon">
-                            <Aide />
-                        </div>
-                        <span className='titre'>
-                            Aide
-                        </span>
-                    </div>
-                    <div className="container">
-                        <div className="icone">
-                            <Commentaire />
-                        </div>
-                        <span className='titre'>
-                            Envoyer des commentaires
-                        </span>
-                    </div>
-                </div>
-            </div>
-
-        </div>
+        </>
     )
 }
 

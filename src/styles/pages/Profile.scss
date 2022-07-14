@@ -3,3 +3,11 @@
         padding: 50px 0px 0px 240px;
     }
 }
+
+@media screen and (max-width: 800px) {
+    .profilPage {
+        .channelPage {
+            padding: 50px 0px 0px 40px;
+        }
+    }
+}

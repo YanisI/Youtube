@@ -6,7 +6,6 @@
     width: 240px;
     height: calc(100vh - 50px);
     background-color: $color-1;
-    font-family: $font-1;
 
     .navSide {
         padding: 12px 0px;
@@ -15,8 +14,9 @@
         .second {
 
             .active {
-                
-    background-color: $color-7;
+                .container {
+                    background-color: $color-7;
+                }
             }
 
             .nav {
@@ -86,24 +86,72 @@
 
     }
 
-    &::-webkit-scrollbar{
+    &::-webkit-scrollbar {
         width: 0.5vw;
         background: transparent;
         transition: 0.8s;
     }
-    &::-webkit-scrollbar-thumb{
-        background-color: transparent; 
+
+    &::-webkit-scrollbar-thumb {
+        background-color: transparent;
 
     }
 
-    
+
 
     &:hover {
         transition: 0.8s;
+
         &::-webkit-scrollbar-thumb {
             border-radius: 10px;
-            background-color: $color-3; 
+            background-color: $color-3;
         }
     }
+
+}
+
+.sidebarSecondary {
+    display: none;
+}
+
+@media screen and (max-width: 800px) {
+    .sidebar {
+        display: none;
+    }
     
+
+    .sidebarSecondary {
+        position: fixed;
+        top: 50px;
+        left: 0px;
+
+        display: flex;
+        flex-direction: column;
+        background-color: $color-1;
+        width: 60px;
+        height: calc(100vh - 50px);
+
+        overflow-y: scroll;
+        .active {
+            .container {
+                background-color: $color-7;
+            }
+        }
+
+        .container {
+            padding: 15px 0px;
+
+            &:hover {
+                background-color: $color-7;
+                cursor: pointer;
+            }
+
+            .icon {
+                height: 24px;
+                margin: 0 auto;
+            }
+        }
+
+
+    }
 }
