@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 import moment from 'moment';
 import { NavLink } from "react-router-dom";
-import { formatNumber } from '../format';
+import { formatNumber, reloadImage } from '../format';
 
 
 
@@ -74,6 +74,8 @@ const SearchItem = ({ video }) => {
                             className="link"
                         >
                             <img
+                                onerror={() => reloadImage(this, url)}
+                                key={Date.now()}
                                 src={`${pp}`}
                                 alt=""
                                 className='video'
@@ -97,6 +99,8 @@ const SearchItem = ({ video }) => {
                         <div className="profileImage">
 
                             <img
+                                onerror={() => reloadImage(this, url)}
+                                key={Date.now()}
                                 src={url}
                                 className='profilePicture'
                                 alt="profilePicture"

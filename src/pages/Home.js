@@ -45,6 +45,9 @@ const Home = () => {
           setVideos(res.data.items);
           setLoad(true);
           return true;
+        })
+        .catch(err => {
+          call();
         });
     }
 

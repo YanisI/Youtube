@@ -2,6 +2,11 @@ import React, { useEffect, useState } from 'react'
 import moment from 'moment';
 
 import { NavLink } from "react-router-dom"
+import { reloadImage } from '../format';
+
+
+
+
 
 const Commentaire = ({ comment }) => {
     const [channel, setChannel] = useState();
@@ -10,14 +15,16 @@ const Commentaire = ({ comment }) => {
     const [date, setDate] = useState("");
     const [com, setCom] = useState("");
 
-    useEffect(()=> {
+    useEffect(() => {
         setChannel(comment.snippet.topLevelComment.snippet.authorChannelId.value);
         setUrl(comment.snippet.topLevelComment.snippet.authorProfileImageUrl);
         setName(comment.snippet.topLevelComment.snippet.authorDisplayName);
         setDate(comment.snippet.topLevelComment.snippet.publishedAt);
         setCom(comment.snippet.topLevelComment.snippet.textOriginal);
 
-    },[comment])
+    }, [comment])
+
+    
 
 
     console.log(comment)
@@ -29,6 +36,8 @@ const Commentaire = ({ comment }) => {
                     className="link"
                 >
                     <img
+                        onerror={() => reloadImage(this, url)}
+                        key={Date.now()}
                         src={url}
                         className="profil"
                         alt="profil"

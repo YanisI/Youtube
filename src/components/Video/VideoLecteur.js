@@ -5,6 +5,7 @@ import moment from 'moment';
 import { NavLink } from "react-router-dom"
 
 import Commentaires from './Commentaires';
+import { reloadImage } from '../format';
 
 const VideoLecteur = ({ videoId }) => {
 
@@ -100,11 +101,17 @@ const VideoLecteur = ({ videoId }) => {
                             </div>
                             <div className="description">
                                 <div className="profileImage">
-                                <NavLink
+                                    <NavLink
                                         to={`/channel/${infos.snippet.channelId}`}
                                         className="link"
                                     >
-                                    <img src={url} className='profilePicture' alt="profilePicture" />
+                                        <img
+                                            onerror={() => reloadImage(this, url)}
+                                            key={Date.now()}
+                                            src={url}
+                                            className='profilePicture'
+                                            alt="profilePicture"
+                                        />
                                     </NavLink>
                                 </div>
                                 <div className="count">

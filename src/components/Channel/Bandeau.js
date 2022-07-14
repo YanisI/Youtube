@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import axios from "axios";
-import { formatNumber } from '../format';
+import { formatNumber, reloadImage } from '../format';
 
 const Bandeau = ({ channelId }) => {
 
-    const [infos, setInfos] = useState()
-    const [loading, setLoading] = useState(false)
+    const [infos, setInfos] = useState();
+    const [loading, setLoading] = useState(false);
+    const [url,setUrl] = useState("");
 
 
     useEffect(() => {
@@ -28,6 +29,7 @@ const Bandeau = ({ channelId }) => {
                     console.log(res.data.items[0]);
                     console.log(res.data.items[0].brandingSettings.image.bannerExternalUrl)
                     setInfos(res.data.items[0])
+                    setUrl(res.data.items[0].snippet.thumbnails.high.url)
                     setLoading(true)
 
                     //          <img className="banner" src={infos.brandingSettings.image.bannerExternalUrl}/>
@@ -40,14 +42,16 @@ const Bandeau = ({ channelId }) => {
     }, [channelId])
     return (
         <>
-            {   loading &&
+            {loading &&
                 <div className='bandeau'>
                     <div className="bandeau-infos">
                         <div className="profile">
                             <div className="profilePicture">
-                                <img 
-                                src={infos.snippet.thumbnails.high.url} 
-                                alt="profilePicture"
+                                <img
+                                    onerror={() => reloadImage(this, url)}
+                                    key={Date.now()}
+                                    src={infos.snippet.thumbnails.high.url}
+                                    alt="profilePicture"
                                 />
                             </div>
                             <div className="namesub">

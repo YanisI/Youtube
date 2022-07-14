@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import moment from 'moment';
 import axios from 'axios';
 import { NavLink } from "react-router-dom";
-import { formatNumber } from './format';
+import { formatNumber, reloadImage } from './format';
 
 
 const Card = ({ video }) => {
@@ -12,11 +12,11 @@ const Card = ({ video }) => {
   const [channelId, setChannelId] = useState("");
   const [load, setLoad] = useState(false);
   const [loadD, setLoadD] = useState(false);
-  const [miniature,setMiniature] = useState("");
-  const [title,setTitle] = useState("");
-  const [channelTitle,setChannelTitle] = useState("");
-  const [publishedAt,setPublishedAt] = useState("");
-  
+  const [miniature, setMiniature] = useState("");
+  const [title, setTitle] = useState("");
+  const [channelTitle, setChannelTitle] = useState("");
+  const [publishedAt, setPublishedAt] = useState("");
+
 
   useEffect(() => {
 
@@ -75,7 +75,9 @@ const Card = ({ video }) => {
             className="link"
           >
             <img
-              src={`${miniature}`}
+              onerror={() => reloadImage(this, miniature)}
+              key={Date.now()}
+              src={miniature}
               alt=""
               className='video'
             />
@@ -83,6 +85,8 @@ const Card = ({ video }) => {
           <div className='info'>
             <div className="profileImage">
               <img
+              onerror={() => reloadImage(this, url)}
+                key={Date.now()}
                 src={url}
                 className='profilePicture'
                 alt="profilePicture" />

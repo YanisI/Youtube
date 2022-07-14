@@ -12,3 +12,10 @@ export const formatNumber = (num) => {
     }
     return num;
 }
+
+
+export const reloadImage = (pThis,url) => {
+    pThis.onerror = null; 
+ 
+    pThis.src = url
+}
