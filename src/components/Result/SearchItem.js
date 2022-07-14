@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 import moment from 'moment';
 import { NavLink } from "react-router-dom";
-import { formatNumber, reloadImage } from '../format';
+import { formatNumber, reloadImage, htmlEnc } from '../format';
 
 
 
 const SearchItem = ({ video }) => {
+
+    console.log(video)
 
     const [url, setUrl] = useState("");
     const [view, setView] = useState(0);
@@ -87,7 +89,7 @@ const SearchItem = ({ video }) => {
                     <div className='info'>
 
                         <div className="title">
-                            {video.snippet.title}
+                            {htmlEnc(video.snippet.title)}
                         </div>
 
                         <div className="video-infos">

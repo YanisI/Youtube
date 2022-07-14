@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import moment from 'moment';
 import axios from 'axios';
 import { NavLink } from "react-router-dom";
-import { formatNumber, reloadImage } from './format';
+import { formatNumber, reloadImage, htmlEnc} from './format';
 
 
 const Card = ({ video }) => {
@@ -20,8 +20,11 @@ const Card = ({ video }) => {
 
   useEffect(() => {
 
+    console.log("AAAAAAAAAAAAAAAAAAAAAA")
+    console.log(video)
+
     setMiniature(video.snippet.thumbnails.medium.url);
-    setTitle(video.snippet.title);
+    setTitle(htmlEnc(video.snippet.title));
     setChannelTitle(video.snippet.channelTitle);
     setChannelId(video.snippet.channelId);
     setPublishedAt(video.snippet.publishedAt)
