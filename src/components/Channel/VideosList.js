@@ -20,7 +20,6 @@ const VideosList = ({ channelId }) => {
                 }
             })
                 .then(res => {
-                    console.log(res.data.items)
                     setVideos(res.data.items)
                     setLoad(true);
                     return true;

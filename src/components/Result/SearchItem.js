@@ -8,7 +8,6 @@ import { formatNumber, reloadImage, htmlEnc } from '../format';
 
 const SearchItem = ({ video }) => {
 
-    console.log(video)
 
     const [url, setUrl] = useState("");
     const [view, setView] = useState(0);
@@ -36,8 +35,6 @@ const SearchItem = ({ video }) => {
                 }
             })
                 .then(res => {
-                    console.log(res)
-                    console.log(res.data.items[0].snippet.thumbnails.default.url)
                     setUrl(res.data.items[0].snippet.thumbnails.default.url);
                     setLoad(true);
                     return true;
@@ -53,7 +50,6 @@ const SearchItem = ({ video }) => {
                 }
             })
                 .then(res => {
-                    console.log("aaa")
                     setView(res.data.items[0].statistics.viewCount);
                     setLoadD(true);
                     return true;

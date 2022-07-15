@@ -2,7 +2,6 @@ import React from 'react'
 import { useEffect } from 'react'
 import axios from 'axios'
 import { useState } from 'react'
-import moment from 'moment';
 import Card from '../components/Card';
 import Navbar from '../components/Navbar';
 import Sidebar from '../components/Sidebar';
@@ -15,9 +14,6 @@ const Home = () => {
   const [max, setMax] = useState(20);
   const [load, setLoad] = useState(false);
 
-
-
-  /* Disable to save resources*/
   
   window.onscroll = function () {
     if(
@@ -39,9 +35,6 @@ const Home = () => {
         }
       })
         .then(res => {
-          console.log(res.data.items[0].snippet.publishedAt);
-          let a = moment(res.data.items[0].snippet.publishedAt);
-          console.log(a.fromNow());
           setVideos(res.data.items);
           setLoad(true);
           return true;

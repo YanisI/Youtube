@@ -9,7 +9,6 @@ const Video = () => {
   const params = useParams();
 
   
-  console.log(params.link)
 
 
   return (

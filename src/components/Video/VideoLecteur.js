@@ -43,7 +43,6 @@ const VideoLecteur = ({ videoId }) => {
 
             axios.get("https://www.googleapis.com/youtube/v3/videos", request)
                 .then(res => {
-                    console.log(res.data.items[0])
                     setInfos(res.data.items[0])
                     var paramsS = new URLSearchParams();
                     paramsS.append("part", "statistics");
@@ -56,7 +55,6 @@ const VideoLecteur = ({ videoId }) => {
                     };
                     axios.get("https://www.googleapis.com/youtube/v3/channels", requestS)
                         .then(res => {
-                            console.log(res.data.items[0]);
                             setUrl(res.data.items[0].snippet.thumbnails.default.url);
                             setChannelInfos(res.data.items[0])
                             setLoading(true)

@@ -9,7 +9,6 @@ const Profile = () => {
   const params = useParams();
 
   
-  console.log(params.query)
 
   return (
     <div className='profilPage'>

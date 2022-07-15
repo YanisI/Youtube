@@ -28,8 +28,6 @@ const SearchResult = ({ query }) => {
                 }
             })
                 .then(res => {
-                    console.log("1 appel ");
-                    console.log(res.data.items);
                     setResult(res.data.items);
                     setLoad(true)
                 });

@@ -26,8 +26,6 @@ const Bandeau = ({ channelId }) => {
 
             axios.get("https://www.googleapis.com/youtube/v3/channels", request)
                 .then(res => {
-                    console.log(res.data.items[0]);
-                    console.log(res.data.items[0].brandingSettings.image.bannerExternalUrl)
                     setInfos(res.data.items[0])
                     setUrl(res.data.items[0].snippet.thumbnails.high.url)
                     setLoading(true)

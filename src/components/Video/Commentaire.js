@@ -26,8 +26,6 @@ const Commentaire = ({ comment }) => {
 
     
 
-
-    console.log(comment)
     return (
         <div className="CommentaireCard">
             <div className="profilePicture">

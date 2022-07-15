@@ -21,7 +21,6 @@ const Commentaires = ({ id }) => {
                 }
             })
                 .then(res => {
-                    console.log(res.data.items)
                     setComments(res.data.items)
                     setLoading(true);
                 })

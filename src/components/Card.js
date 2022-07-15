@@ -20,9 +20,6 @@ const Card = ({ video }) => {
 
   useEffect(() => {
 
-    console.log("AAAAAAAAAAAAAAAAAAAAAA")
-    console.log(video)
-
     setMiniature(video.snippet.thumbnails.medium.url);
     setTitle(htmlEnc(video.snippet.title));
     setChannelTitle(video.snippet.channelTitle);
@@ -38,8 +35,6 @@ const Card = ({ video }) => {
         }
       })
         .then(res => {
-          console.log(res);
-          console.log(res.data.items[0].snippet.thumbnails.default.url);
           setUrl(res.data.items[0].snippet.thumbnails.default.url);
           setLoad(true);
           return true;
@@ -55,7 +50,6 @@ const Card = ({ video }) => {
         }
       })
         .then(res => {
-          console.log("aaa");
           setView(res.data.items[0].statistics.viewCount);
           setLoadD(true);
           return true;

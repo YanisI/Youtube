@@ -8,7 +8,6 @@ const Result = () => {
 
   const params = useParams();
 
-  console.log(params.query)
 
   return (
     <div className='resultPage'>
