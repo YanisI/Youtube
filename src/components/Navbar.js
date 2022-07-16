@@ -13,11 +13,24 @@ const Navbar = () => {
 
     const [val, setVal] = useState("")
     let navigate = useNavigate();
+
     const handleClick = () => {
         if(val.length > 0)
         navigate(`/result/${val}`);
     }
 
+    const handleChange = (e) => {
+        setVal(e.target.value)
+    }
+
+    const handleEnter =() => {
+        let a = window.event;
+        if(a.key === "Enter") {
+           handleClick()
+        }
+    }
+    
+      
     return (
         <div className="menu">
             <div className="menu-start">
@@ -36,7 +49,8 @@ const Navbar = () => {
                     className='search'
                     value={val}
                     placeholder="Rechercher"
-                    onChange={(e) => setVal(e.target.value)}
+                    onChange={handleChange}
+                    onKeyDown={handleEnter}
                 />
                 <div className="btn-container"
                     onClick={() => window.scrollTo(0, 0)}>
@@ -44,14 +58,6 @@ const Navbar = () => {
                         className='btn-search'
                         onClick={handleClick}
                     />
-                    {/* val.length > 0 ? <NavLink
-                        to={`/result/${val}`}
-                        className="nav"
-                    >
-                        <Loupe className='btn-search' 
-                        />
-                    </NavLink>:<div className='nav'><Loupe className='btn-search' 
-    /></div>*/}
                 </div>
             </div>
             <div className="end">

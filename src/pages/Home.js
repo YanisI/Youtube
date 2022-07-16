@@ -3,7 +3,6 @@ import { useEffect } from 'react'
 import axios from 'axios'
 import { useState } from 'react'
 import Card from '../components/Card';
-import Navbar from '../components/Navbar';
 import Sidebar from '../components/Sidebar';
 
 
@@ -31,7 +30,9 @@ const Home = () => {
         params: {
           part: 'snippet',
           maxResults: max,
-          key: process.env.REACT_APP_KEY
+          key: process.env.REACT_APP_KEY,
+          videoCategoryId: 17,
+          type: "video"
         }
       })
         .then(res => {
@@ -40,7 +41,7 @@ const Home = () => {
           return true;
         })
         .catch(err => {
-          call();
+          console.log(err)
         });
     }
 
@@ -52,7 +53,6 @@ const Home = () => {
     <>
       {load &&
         <div className="home">
-          <Navbar />
           <Sidebar />
 
           <div className='HomePage'>
