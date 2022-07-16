@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useContext, useState } from 'react'
 import ReactPlayer from 'react-player'
 import axios from "axios"
 import moment from 'moment';
@@ -7,12 +7,17 @@ import { NavLink } from "react-router-dom"
 import Commentaires from './Commentaires';
 import { reloadImage } from '../format';
 
+import { AppContext } from '../../context/AppContext';
+
 const VideoLecteur = ({ videoId }) => {
 
     const [infos, setInfos] = useState();
     const [channelInfos, setChannelInfos] = useState();
     const [loading, setLoading] = useState(false);
     const [url, setUrl] = useState("");
+
+    
+    const { subs, dispatch } = useContext(AppContext);
 
     const format = (num) => {
 
@@ -26,6 +31,13 @@ const VideoLecteur = ({ videoId }) => {
             return (num / 1000).toFixed(1).replace(/\.0$/, '') + 'K';
         }
         return num;
+    }
+
+    const handleSub = () => {
+        dispatch({
+            type: "ADD_SUB",
+            payload: infos.snippet.channelId
+        })
     }
 
     useEffect(() => {
@@ -97,30 +109,50 @@ const VideoLecteur = ({ videoId }) => {
                                     <span>{format(infos.statistics.likeCount)} Likes</span>
                                 </div>
                             </div>
-                            <div className="description">
-                                <div className="profileImage">
-                                    <NavLink
-                                        to={`/channel/${infos.snippet.channelId}`}
-                                        className="link"
-                                    >
-                                        <img
-                                            onerror={() => reloadImage(this, url)}
-                                            key={Date.now()}
-                                            src={url}
-                                            className='profilePicture'
-                                            alt="profilePicture"
-                                        />
-                                    </NavLink>
+                            <div className="en-tete">
+                                <div className="first">
+
+                                    <div className="profileImage">
+                                        <NavLink
+                                            to={`/channel/${infos.snippet.channelId}`}
+                                            className="link"
+                                        >
+                                            <img
+                                                onerror={() => reloadImage(this, url)}
+                                                key={Date.now()}
+                                                src={url}
+                                                className='profilePicture'
+                                                alt="profilePicture"
+                                            />
+                                        </NavLink>
+                                    </div>
+                                    <div className="count">
+                                        <NavLink
+                                            to={`/channel/${infos.snippet.channelId}`}
+                                            className="link"
+                                        >
+                                            <span className='title'>{format(channelInfos.snippet.title)} </span>
+                                        </NavLink>
+                                        <span className='sub'>{format(channelInfos.statistics.subscriberCount)} Abonnées </span>
+                                    </div>
                                 </div>
-                                <div className="count">
-                                    <NavLink
-                                        to={`/channel/${infos.snippet.channelId}`}
-                                        className="link"
-                                    >
-                                        <span className='title'>{format(channelInfos.snippet.title)} </span>
-                                    </NavLink>
-                                    <span className='sub'>{format(channelInfos.statistics.subscriberCount)} Abonnées </span>
+                                <div className="last">
+                                    <button
+                                        onClick={handleSub}
+                                        className={subs.includes(infos.snippet.channelId) ? "unsub" : "sub"}>
+                                        {subs.includes(infos.snippet.channelId) ?
+                                            <span>
+                                                ABONNER
+                                            </span>
+                                            :
+                                            <span>
+                                                S'ABONNER
+                                            </span>}
+                                    </button>
                                 </div>
+                            </div>
+                            <div className="description display-linebreak">
+                                {infos.snippet.description}
                             </div>
                             <div className="commentaire">
                                 <Commentaires id={videoId} />

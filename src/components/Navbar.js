@@ -7,10 +7,17 @@ import { ReactComponent as Upload } from '../images/upload.svg';
 import { ReactComponent as Application } from '../images/application.svg';
 import { ReactComponent as Notification } from '../images/notification.svg';
 import { NavLink } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
 
     const [val, setVal] = useState("")
+    let navigate = useNavigate();
+    const handleClick = () => {
+        if(val.length > 0)
+        navigate(`/result/${val}`);
+    }
+
     return (
         <div className="menu">
             <div className="menu-start">
@@ -33,13 +40,18 @@ const Navbar = () => {
                 />
                 <div className="btn-container"
                     onClick={() => window.scrollTo(0, 0)}>
-                    <NavLink
+                    <Loupe
+                        className='btn-search'
+                        onClick={handleClick}
+                    />
+                    {/* val.length > 0 ? <NavLink
                         to={`/result/${val}`}
-                        className={(nav) => (nav.isActive ? "nav-active" : "")}
+                        className="nav"
                     >
                         <Loupe className='btn-search' 
                         />
-                    </NavLink>
+                    </NavLink>:<div className='nav'><Loupe className='btn-search' 
+    /></div>*/}
                 </div>
             </div>
             <div className="end">

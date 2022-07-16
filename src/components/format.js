@@ -16,8 +16,9 @@ export const formatNumber = (num) => {
 
 export const reloadImage = (pThis,url) => {
     pThis.onerror = null; 
- 
-    pThis.src = url
+    setTimeout(pThis.src = url
+        , Math.ceil(Math.random()*1000+50));
+    
 }
 
 export const htmlEnc = (s) => {

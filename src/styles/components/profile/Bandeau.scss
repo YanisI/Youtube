@@ -34,14 +34,23 @@
 
         .sub {
             button {
-                background-color: $color-sub;
-                color: $white;
+                
                 outline: none;
                 border: none;
                 cursor: pointer;
                 padding: 10px 16px;
                 font-weight: 500;
                 border-radius: 5px;
+                width: 110px;
+            }
+
+            .sub {
+                background-color: $color-sub;
+                color: $white;
+            }
+            .unsub {
+                color: $white;
+                background-color: $color-3;
             }
         }
     }

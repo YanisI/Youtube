@@ -40,10 +40,9 @@
 
     .middle {
         display: flex;
-        align-items: center;
         position: relative;
 
-        > input {
+        >input {
             background-color: $color-2;
             width: 25vw;
             padding: 7px 10px;
@@ -56,46 +55,51 @@
 
         .btn-container {
             position: relative;
-            .btn-search {
-                padding: 3px 10px;
-                height: 30px;
-                background-color: $color-4;
-                border: none;
-                outline: none;
-                border-radius: 0px 10px 10px 0px;
-    
-                &:hover {
-                    background-color: $color-3;
+
+            
+                .btn-search {
+                    padding: 3px 10px;
+                    height: 30px;
+                    background-color: $color-4;
+                    border: none;
+                    outline: none;
+                    border-radius: 0px 10px 10px 0px;
+
+                    &:hover {
+                        background-color: $color-3;
+                    }
+
+                    &:active {
+                        background-color: $color-5;
+                    }
                 }
-    
-                &:active {
-                    background-color: $color-1;
-                }
-            }
+            
+
             &::after {
                 position: absolute;
-                content:"Rechercher";
+                content: "Rechercher";
                 right: -28px;
                 bottom: -45px;
                 visibility: hidden;
                 background-color: $color-4;
                 padding: 5px 10px;
                 border-radius: 10px;
-                
+
             }
-            &:hover{
-                &::after{
-                    visibility:visible;
+
+            &:hover {
+                &::after {
+                    visibility: visible;
                 }
             }
         }
-       
+
 
         .hover {
             position: absolute;
             text-align: center;
             right: -5%;
-            top:50px;
+            top: 50px;
         }
 
     }
@@ -117,34 +121,35 @@
 
         }
 
-        .upload{
-            &::after{
-                content:"Upload";
+        .upload {
+            &::after {
+                content: "Upload";
                 right: -15px;
             }
         }
 
-        .application{
-            &::after{
-                content:"Application";
+        .application {
+            &::after {
+                content: "Application";
                 right: -28px;
             }
         }
 
-        .notification{
-            &::after{
-                content:"Notification";
+        .notification {
+            &::after {
+                content: "Notification";
                 right: -30px;
             }
         }
 
-        .icon-container{
+        .icon-container {
             position: relative;
 
-            &:active{
+            &:active {
                 background-color: $color-2;
                 border-radius: 10px;
             }
+
             &::after {
                 position: absolute;
                 bottom: -45px;
@@ -152,17 +157,18 @@
                 background-color: $color-4;
                 padding: 5px 10px;
                 border-radius: 10px;
-                
+
             }
-            &:hover{
-                &::after{
-                    visibility:visible;
+
+            &:hover {
+                &::after {
+                    visibility: visible;
                 }
             }
-            
+
         }
 
-    
+
 
         p {
             margin: 5px 10px;

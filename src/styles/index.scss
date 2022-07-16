@@ -31,3 +31,12 @@
         border-radius: 10px;
         background-color: $color-5; 
     }
+
+
+    ::-webkit-scrollbar-corner  {
+        display: none;  
+    }
+
+.display-linebreak {
+    white-space: pre-line;
+}

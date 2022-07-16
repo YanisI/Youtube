@@ -1,13 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useContext, useState } from 'react';
 import axios from "axios";
 import { formatNumber, reloadImage } from '../format';
+
+import { AppContext } from '../../context/AppContext';
 
 const Bandeau = ({ channelId }) => {
 
     const [infos, setInfos] = useState();
     const [loading, setLoading] = useState(false);
-    const [url,setUrl] = useState("");
+    const [url, setUrl] = useState("");
 
+
+    const { subs, dispatch } = useContext(AppContext);
 
     useEffect(() => {
 
@@ -29,8 +33,6 @@ const Bandeau = ({ channelId }) => {
                     setInfos(res.data.items[0])
                     setUrl(res.data.items[0].snippet.thumbnails.high.url)
                     setLoading(true)
-
-                    //          <img className="banner" src={infos.brandingSettings.image.bannerExternalUrl}/>
                 });
         }
 
@@ -38,6 +40,15 @@ const Bandeau = ({ channelId }) => {
 
 
     }, [channelId])
+
+    const handleSub = () => {
+        dispatch({
+            type: "ADD_SUB",
+            payload: channelId
+        })
+    }
+
+
     return (
         <>
             {loading &&
@@ -58,7 +69,18 @@ const Bandeau = ({ channelId }) => {
                             </div>
                         </div>
                         <div className="sub">
-                            <button>S'ABONNER</button>
+                            <button
+                                onClick={handleSub}
+                                className={subs.includes(channelId) ? "unsub" : "sub"}>
+                                {subs.includes(channelId) ?
+                                    <span>
+                                        ABONNER
+                                    </span>
+                                    :
+                                    <span>
+                                        S'ABONNER
+                                    </span>}
+                            </button>
                         </div>
                     </div>
                 </div>
