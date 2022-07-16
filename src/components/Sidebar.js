@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { ReactComponent as Accueil } from '../images/sidebar/premier/accueil.svg';
 import { ReactComponent as Abonnement } from '../images/sidebar/premier/abonnement.svg';
 import { ReactComponent as Explorer } from '../images/sidebar/premier/explorer.svg';
@@ -24,9 +24,14 @@ import { ReactComponent as Aide } from '../images/sidebar/fourth/aide.svg';
 import { ReactComponent as Commentaire } from '../images/sidebar/fourth/commentaire.svg';
 
 import { NavLink } from "react-router-dom"
+import { AppContext } from '../context/AppContext';
+import Sub from './Sub';
 
 
 const Sidebar = () => {
+
+    const { subs } = useContext(AppContext);
+
     return (
         <>
             <div className='sidebar'>
@@ -119,6 +124,9 @@ const Sidebar = () => {
                         <div className="container">
                             ABONNEMENTS
                         </div>
+                        {subs.map(sub => {
+                           return <Sub channelId={sub}/>
+                        })}
                     </div>
                 </div>
                 <div className="navSide">
